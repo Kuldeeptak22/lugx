@@ -1,38 +1,226 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar-collapse {
+  flex-grow: 0 !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ============ AppBar ============= */
+
+
+/* ======= Header Section ========= */
+.header{
+  /* --bs-gutter-x: 0rem !important; */
+
+}
+.header .header-box{
+  border-radius: 0 0 200px 200px;
+  padding-bottom: 90px;
+}
+.headeritem2{
+  position: relative;
+}
+.discount{
+  border-radius: 50%;
+  padding: 25px 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  position: relative;
+  right: 22rem; 
+   top: 12rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header-items{
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+.featuresBox{
+  /* width: 20% !important; */
+  box-shadow: 1px 1px 5px 1px rgb(234, 228, 228) ;
+  background-color: white;
+}
+.borderRound{
+  border-radius: 50%;
+}
+.features{
+  margin-top: -5rem !important ;
+}
+
+/* ======== app bar =========== */
+
+.navLink:hover{
+  background-color: #1386ea	 !important;
+  border-radius: 3rem;
+}
+
+/* =========== topHead ============ */
+.topHead{
+  min-height: 70vh;
+  border-radius: 0 0 200px 200px;
+}
+.topHeadTitle{
+  padding-bottom: 8rem;
+}
+/* ===== Home Section ============ */
+.bestGame{
+  font-size: 2.8rem;
+}
+.featImg{
+  border-radius: 50%;
+}
+.featImg:hover{
+  cursor: pointer;
+  background-color: #d13c3c !important;
+}
+/* ---------- Card Section ------- */
+.cardItems{
+  text-align: left !important;
+}
+.cItems{
+  border: none !important;
+  background-color: rgb(238, 236, 236) !important;
+  border-radius: 1.5rem !important;
+  padding-bottom: 2rem;
+}
+.cardTitle{
+  word-wrap: break-word !important;
+  display: inline;
+  font-size: 1.2rem !important;
+}
+.cardImages{
+  border-radius: 1.5rem !important;
+  cursor: pointer;
+}
+.CardItemTitle:hover{
+  color: blue;
+}
+.cartbag:hover{
+  background-color: blue !important;
+  cursor: pointer;
+}
+
+/* ----------- OurShop ----------- */
+.ourShopTag{
+  background-color: rgb(189, 182, 182);
+  margin: 2rem 1rem;
+  font-weight: bold;
+}
+.ourShopTag:hover{
+  cursor: pointer;
+  background-color: #d13c3c;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* =========== Footer Section ============ */
+.footer .footer-box{
+  height: 26vh;
+  border-radius: 200px 200px 0 0;
+}
+.footer-items{
+  padding: 22px 0;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.wing{
+  position: absolute;
+  top: 22rem;
+  left: 10.5rem;
+}
+
+/* ======== Contact us ============ */
+.contactDetails{
+  background-color: rgb(236, 232, 232);
+ border-radius: 2rem;
+}
+
+
+
+@media screen and (max-width:991px){
+  .header .header-items{
+  text-align: center !important;
+  padding-top: 5rem !important;
   }
-  to {
-    transform: rotate(360deg);
+  .header-box{
+    padding-bottom: 150px;
+  }
+  .headeritem1{
+    padding-bottom: 0px;
+  }
+  .banner{
+    width: 100% !important;
+  }
+  .discount{
+    position: sticky;
+  }
+  /* ---------  Home , Card Section ----------- */
+  .bestGame{
+    font-size: 2rem;
+  }
+  .viewALL{
+  display: none;
+  }
+  .cardItems{
+    text-align: center !important;
+    /* margin: 10px auto !important; */
+  }
+  .cItems{
+    width: 100% !important;
+  }
+  .wing{
+    position: static;
+  }
+  .TopCategory{
+    font-size: 2rem;
+    word-wrap: break-word;
+  }
+  .features{
+    padding: 0 1rem !important;
+  }
+  
+
+  /* ======== app bar =========== */
+  .active:hover{
+    background-color: rgb(254, 250, 250);
+    font-weight: bold;
+    color: black !important;
+    border-radius: 1.1rem;
+  }
+  .show{
+    background-color: rgb(160, 156, 156);
+    border-radius: 1.1rem;
+  }
+  .active{
+    background-color: #0d6dfde8 !important;
+  }
+  .nav-link{
+  margin: 5px 0;
+  }
+/* ======== Product Details ===== */
+.productData{
+  margin: 2rem 0 !important;
+}
+  
+  /* ======== Footer ========= */
+  .footer-items {
+    padding: 0px;
+  }
+}
+
+
+
+@media screen and (max-width:222px){
+  .wing{
+   display: none;
+  }
+  .discount{
+    display: none;
   }
 }
