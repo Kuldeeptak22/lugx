@@ -3,13 +3,21 @@ import TopHead from "../TopHead/TopHead";
 import { Col, Container, Row } from "react-bootstrap";
 import SingleCard from "../singleCard/SingleCard";
 import { productApi } from "../../../common/Api/productApi";
+import AOS from "aos";
 
 const OurShop = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     setMovies(productApi);
+    window.scrollTo(0, 0);
   }, [productApi]);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
 
   const movieList =
     movies &&
@@ -83,6 +91,7 @@ const OurShop = () => {
                   className="ourShopTag p-2 rounded-5"
                   onClick={() => filterMovies(item.genre)}
                   key={item.id}
+                  data-aos="flip-right"
                 >
                   {item.title}
                 </Col>

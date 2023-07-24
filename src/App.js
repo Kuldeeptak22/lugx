@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import AppBar from "./Components/AppBar/AppBar";
 import OurShop from "./Components/AppBar/Our Shop/OurShop";
@@ -8,7 +7,6 @@ import Home from "./Components/AppBar/Home/Home";
 import ProductDetails from "./Components/AppBar/Product Details/ProductDetails";
 import Contact from "./Components/AppBar/Contacts/Contact";
 import SignIn from "./Components/AppBar/SignIn/SignIn";
-import AOS from "aos";
 import "aos/dist/aos.css";
 
 function App() {
@@ -16,7 +14,6 @@ function App() {
     <div className="App">
       <Router>
         <AppBar />
-        {/* <Header /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ourShop" element={<OurShop />} />

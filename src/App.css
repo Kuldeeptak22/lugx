@@ -123,14 +123,13 @@
 }
 
 /* =========== Footer Section ============ */
-.footer .footer-box{
+ .footer .footer-box{
   height: 26vh;
   border-radius: 200px 200px 0 0;
 }
 .footer-items{
-  padding: 22px 0;
   color: white;
-}
+} 
 
 .wing{
   position: absolute;

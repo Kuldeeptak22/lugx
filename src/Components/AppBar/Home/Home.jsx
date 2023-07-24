@@ -4,11 +4,20 @@ import { productApi } from "../../../common/Api/productApi";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import SingleCard from "../singleCard/SingleCard";
 import CategoryCard from "../CategoryCard/CategoryCard";
+import AOS from "aos";
+
 const Home = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     setMovies(productApi);
+    window.scrollTo(0, 0);
   }, [productApi]);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
 
   const homeData = [
     {
@@ -75,7 +84,10 @@ const Home = () => {
                   <p className="text-start text-danger fw-bold text-break">
                     {title}
                   </p>
-                  <p className="text-start d-flex justify-content-between align-items-center">
+                  <p
+                    className="text-start d-flex justify-content-between align-items-center"
+                    data-aos="fade-right"
+                  >
                     <span className="fs-1 fw-bold text-break">{subtitle}</span>
                     <span>
                       <button className="px-4 py-2 rounded-5 bg-danger border-0 text-white fw-semibold viewALL">
@@ -89,7 +101,7 @@ const Home = () => {
             );
           })}
 
-        <Row className="my-5 pt-5 pb-1 text-center fw-bold">
+        <Row className="my-5 pt-5 pb-1 text-center fw-bold" data-aos="zoom-in">
           <p className="text-danger fw-bold text-break">CATEGORIES</p>
           <p className=" fs-1 TopCategory">Top Categories</p>
         </Row>

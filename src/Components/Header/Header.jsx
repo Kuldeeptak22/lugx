@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Container, InputGroup, Row, Form } from "react-bootstrap";
 import banner from "../../assets/images/banner.jpg";
+import AOS from "aos";
 
 const Header = () => {
   const featuresData = [
@@ -29,13 +30,22 @@ const Header = () => {
       img: "https://templatemo.com/templates/templatemo_589_lugx_gaming/assets/images/featured-04.png",
     },
   ];
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
   return (
     <>
       <Container fluid className="header">
         <Row className="bg-primary header-box px-sm-5">
           <Col lg={6} className="header-items headeritem1 text-start mt-5">
             <h1 className="fs-5 text-white text-break">WELCOME TO LUGX</h1>
-            <p className="bestGame fw-bold text-white text-break">
+            <p
+              className="bestGame fw-bold text-white text-break"
+              data-aos="zoom-in"
+            >
               BEST GAMING SITE EVER!
             </p>
             <span className="wing">
@@ -72,6 +82,7 @@ const Header = () => {
               alt="banner"
               width="320"
               className="rounded-5 banner"
+              data-aos="fade-right"
             />
             <span className="bg-danger discount">-40%</span>
           </Col>
@@ -86,6 +97,7 @@ const Header = () => {
                   md={5}
                   className="mx-3 my-3 py-5 rounded-4 featuresBox"
                   key={id}
+                  data-aos="zoom-in"
                 >
                   <img className="bg-primary p-3 featImg" src={img} alt={alt} />
                   <p className="py-3 fw-bold">{title}</p>

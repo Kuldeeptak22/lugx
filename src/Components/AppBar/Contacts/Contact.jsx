@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TopHead from "../TopHead/TopHead";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import GoogleMapReact from "google-map-react";
-import { topHeadData } from "../../../common/Api/JSON/topHeadData";
+import AOS from "aos";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const Contact = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+    window.scrollTo(0, 0);
+  }, []);
+
   const defaultProps = {
     center: {
       lat: 10.99835602,
@@ -29,7 +36,9 @@ const Contact = () => {
               <p className="text-start fw-bold text-danger">CONTACT US</p>
             </div>
             <div>
-              <p className="text-start fs-1 fw-bold">Say Hello !</p>
+              <p className="text-start fs-1 fw-bold" data-aos="fade-right">
+                Say Hello !
+              </p>
             </div>
             <div>
               <p className="text-start py-5">
@@ -54,7 +63,9 @@ const Contact = () => {
             </div>
             <div className="text-start py-2">
               <p className="fw-bold">Email</p>
-              <p className="text-secondary">kuldeeptak2211@gmail.com</p>
+              <p className="text-secondary text-break">
+                kuldeeptak2211@gmail.com
+              </p>
             </div>
           </Col>
           <Col lg={6} className=" p-5">
@@ -75,8 +86,8 @@ const Contact = () => {
                 </div>
               </Col>
               <Col lg={12}>
-                <Row>
-                  <Col lg={6} className="py-1 mt-5">
+                <Row className="mt-5">
+                  <Col lg={6} className="py-1 ">
                     <Form>
                       <Form.Group
                         className="mb-3"
@@ -86,7 +97,7 @@ const Contact = () => {
                       </Form.Group>
                     </Form>
                   </Col>
-                  <Col lg={6} className="py-1 mt-5">
+                  <Col lg={6} className="py-1">
                     <Form>
                       <Form.Group
                         className="mb-3"
