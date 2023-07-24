@@ -1,10 +1,11 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
 
-const SingleCard = (props, a) => {
-  console.log("props", props.data);
-  console.log("Propsss", props, a);
-  const clickEvent = () => [console.log("Hello click")];
+const SingleCard = (props) => {
+  const clickEvent = (id) => {
+    console.log("Id", id);
+  };
+
   const {
     Actors,
     Awards,
@@ -36,7 +37,7 @@ const SingleCard = (props, a) => {
       <Card style={{ width: "15rem", height: "100%" }} className="cItems">
         <Card.Img
           variant="top"
-          src={Images[2]}
+          src={Images[0]}
           className="image-fluid cardImages"
         />
         <Card.Body className="cardBody">
@@ -45,7 +46,7 @@ const SingleCard = (props, a) => {
             <Card.Title className="cardTitle text-wrap">{Title}</Card.Title>
             <i
               className="fa fa-shopping-bag text-white bg-danger p-2 borderRound cartbag"
-              onClick={clickEvent}
+              onClick={() => clickEvent(imdbID)}
             ></i>
           </div>
         </Card.Body>

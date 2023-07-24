@@ -8,6 +8,8 @@ import Home from "./Components/AppBar/Home/Home";
 import ProductDetails from "./Components/AppBar/Product Details/ProductDetails";
 import Contact from "./Components/AppBar/Contacts/Contact";
 import SignIn from "./Components/AppBar/SignIn/SignIn";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   return (

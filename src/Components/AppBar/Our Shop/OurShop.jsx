@@ -1,52 +1,93 @@
 import React, { useEffect, useState } from "react";
 import TopHead from "../TopHead/TopHead";
-import { topHeadData } from "../../../common/Api/JSON/topHeadData";
 import { Col, Container, Row } from "react-bootstrap";
 import SingleCard from "../singleCard/SingleCard";
 import { productApi } from "../../../common/Api/productApi";
 
 const OurShop = () => {
   const [movies, setMovies] = useState([]);
-  const clickForProductDetails = () => {
-    console.log("hellow");
-  };
+
   useEffect(() => {
     setMovies(productApi);
   }, [productApi]);
 
   const movieList =
     movies &&
-    movies.map((elm, index) => {
-      return (
-        <SingleCard
-          data={elm}
-          key={elm.imdbID}
-          clickFunction={clickForProductDetails}
-        />
-      );
+    movies.map((elm) => {
+      return <SingleCard data={elm} key={elm.imdbID} />;
     });
 
   const breadcrumb = {
     mainTitle: ["Home", "Shop"],
     subTitle: "Our Shop",
   };
+
+  const filterMovies = (genre) => {
+    movies &&
+      movies.filter((ele) => {
+        console.log(ele.Genre.split(" "));
+        // return ele.Genre.split(" ").map((ip) => {
+        //   // return ip === genre;
+        //   console.log("ooo", ip);
+        // });
+      });
+    // .map((elm) => {
+    //   console.log("ELE", elm);
+    //   return <SingleCard data={elm} key={elm.imdbID} />;
+    // });
+  };
+
+  const filterOption = [
+    {
+      id: 1,
+      title: "SHOW ALL",
+      genre: "Crime, Drama, Thriller",
+    },
+    {
+      id: 2,
+      title: "ACTION",
+      genre: "Action",
+    },
+    {
+      id: 3,
+      title: "DRAMA",
+      genre: "Drama",
+    },
+    {
+      id: 4,
+      title: "THRILLER",
+      genre: "Thriller",
+    },
+    {
+      id: 5,
+      title: "HORROR",
+      genre: "Horror",
+    },
+    {
+      id: 6,
+      title: "COMEDY",
+      genre: "Comedy",
+    },
+  ];
+
   return (
     <>
       <TopHead breadcrumb={breadcrumb} />
       <Container>
         <Row className="mx-3 my-5 d-flex justify-content-center">
-          <Col lg={2} className=" ourShopTag p-2 rounded-5">
-            SHOW ALL
-          </Col>
-          <Col lg={2} className=" ourShopTag p-2 rounded-5">
-            ADVENTURE
-          </Col>
-          <Col lg={2} className=" ourShopTag p-2 rounded-5">
-            STRATEGY
-          </Col>
-          <Col lg={2} className=" ourShopTag p-2 rounded-5">
-            RACING
-          </Col>
+          {filterOption &&
+            filterOption.map((item) => {
+              return (
+                <Col
+                  lg={2}
+                  className="ourShopTag p-2 rounded-5"
+                  onClick={() => filterMovies(item.genre)}
+                  key={item.id}
+                >
+                  {item.title}
+                </Col>
+              );
+            })}
         </Row>
         <Row className="my-5">{movieList}</Row>
       </Container>
